@@ -91,7 +91,8 @@ def main_banner():
         
                                           V1.0
            
-                                  BY TOMAS ILLUMINATI     
+                              BY  RYAN MONTGOMERY (0dayCTF)
+                                PORT BY TOMAS ILLUMINATI
     """
     # Print the banner with green color
     print(colorize_text(banner, "green"))
