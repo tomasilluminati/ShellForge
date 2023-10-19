@@ -15,19 +15,19 @@ def rev_shells_3(num, ip, port, shell):
 
 
     # Select and return the appropriate reverse shell command based on user input
-    if num == 57:
+    if num == 56:
         return rustcat
-    elif num == 58:
+    elif num == 57:
         return socat_1
-    elif num == 59:
+    elif num == 58:
         return socat_2
-    elif num == 60:
+    elif num == 59:
         return sqlite3_nc_mkfifo
-    elif num == 61:
+    elif num == 60:
         return telnet
-    elif num == 62:
+    elif num == 61:
         return vlang
-    elif num == 63:
+    elif num == 62:
         return zsh
 
     
