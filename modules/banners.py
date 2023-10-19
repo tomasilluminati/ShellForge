@@ -8,7 +8,7 @@ def export():
     # Call the separator function to create a separator line in red
     separator("red")
     # Print a message with yellow color
-    print(colorize_text("\n                          FILE OUTPUT", "yellow"))
+    print(colorize_text("\n                                   FILE OUTPUT", "yellow"))
     # Call the separator function to create another separator line in red
     separator("red")
     # Prompt the user for a filename and add a ".txt" extension
