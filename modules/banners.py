@@ -89,10 +89,11 @@ def main_banner():
     ███████║██║  ██║███████╗███████╗███████╗██║     ╚██████╔╝██║  ██║╚██████╔╝███████╗
     ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝ 
         
-                                          V1.0
-           
-                              BY  RYAN MONTGOMERY (0dayCTF)
-                                PORT BY TOMAS ILLUMINATI
+                                       V1.0
+
+                                BY TOMAS ILLUMINATI
+
+                     FROM REV SHELL BY RYAN MONTGOMERY (0dayCTF)
     """
     # Print the banner with green color
     print(colorize_text(banner, "green"))
@@ -102,7 +103,7 @@ def main_banner():
 # Define a function to create a separator line with a specified color
 def separator(color):
     # Print a separator line with the given color
-    print(colorize_text("\n------------------------------------------------------------------------------------", color))
+    print(colorize_text("\n--------------------------------------------------------------------------------------", color))
 
 # Define a function to handle errors
 def error(error_n):
