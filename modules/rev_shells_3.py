@@ -27,7 +27,7 @@ def rev_shells_3(num, ip, port, shell):
         return telnet
     elif num == 62:
         return vlang
-    elif num == 64:
+    elif num == 63:
         return zsh
 
     
