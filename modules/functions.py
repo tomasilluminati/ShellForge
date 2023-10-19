@@ -33,7 +33,7 @@ def test_lang_ans(num):
         num = int(num)
 
         # Check if the number is within the valid range (0-64)
-        if num <= 64 and num >= 0:  # NOTE: Replace 64 with the actual number of valid shells
+        if num <= 64 and num >= 0: 
             return True  # It's a valid language answer
         else:
             return False  # It's not a valid language answer
