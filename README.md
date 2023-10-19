@@ -23,7 +23,7 @@ To use ShellForge, follow these simple steps:
 3. Execute the script using Python 3 with the following command:
 
    ```bash
-   python shellForge.py
+   python3 shellForge.py
    ```
 
 4. Provide the following information:
