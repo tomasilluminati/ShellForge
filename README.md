@@ -1,6 +1,6 @@
 # ShellForge
 
-![GitHub License](https://img.shields.io/badge/License-MIT-green) ![Web Fuzzing](https://img.shields.io/badge/Tool-Reverse_Shell_Toolkit-blue)
+![GitHub License](https://img.shields.io/badge/License-MIT-green) ![Web Fuzzing](https://img.shields.io/badge/Tool-Reverse_Shell_Code_Generator-blue)
 
 ## Overview
 
