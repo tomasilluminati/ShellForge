@@ -6,7 +6,7 @@
 
 **ShellForge** is a Python tool for automatic creation of scripts for Reverse Shell
 
-- From the original code by Ryan Montgomery
+- From the original code by [Ryan Montgomery](https://github.com/0dayCTF) [[Orinal Repository](https://github.com/0dayCTF/reverse-shell-generator)]
 - Official Web Page [revshells.com](https://revshells.com)
 - Port to python by [Tomás Illuminati](https://github.com/tomasilluminati)
 - Python 3.11.0 (64-bit)
