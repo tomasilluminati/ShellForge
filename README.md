@@ -11,7 +11,7 @@
 - Port to python by [Tomás Illuminati](https://github.com/tomasilluminati)
 - Python 3.11.0 (64-bit)
 - Encoding: UTF-8
-- Release Date: August 12, 2023
+- Release Date: October 18
 
 ## Usage
 
