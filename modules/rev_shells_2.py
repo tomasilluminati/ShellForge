@@ -270,40 +270,38 @@ except KeyboardInterrupt:
     elif num == 38:
         return php_cmd_small
     elif num == 39:
-        return php_cmd_small
-    elif num == 40:
         return php_cmd_exec
-    elif num == 41:
+    elif num == 40:
         return php_passthru
-    elif num == 42:
+    elif num == 41:
         return php_popen
-    elif num == 43:
+    elif num == 42:
         return php_proc_open
-    elif num == 44:
+    elif num == 43:
         return php_shell_exec
-    elif num == 45:
+    elif num == 44:
         return powershell_1
-    elif num == 46:
+    elif num == 45:
         return powershell_2
-    elif num == 47:
+    elif num == 46:
         return powershell_3
-    elif num == 48:
+    elif num == 47:
         return powershell_4
-    elif num == 49:
+    elif num == 48:
         return python_1
-    elif num == 50:
+    elif num == 49:
         return python_2
-    elif num == 51:
+    elif num == 50:
         return python3_1
-    elif num == 52:
+    elif num == 51:
         return python3_2
-    elif num == 53:
+    elif num == 52:
         return python3_short
-    elif num == 54:
+    elif num == 53:
         return python3_windows
-    elif num == 55:
+    elif num == 54:
         return ruby
-    elif num == 56:
+    elif num == 55:
         return ruby_no_sh
     else:
         return 0
